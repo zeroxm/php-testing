@@ -4,9 +4,23 @@ services:
   php:
     build:
       context: .
+      args:
+        ENV: development
     container_name: php
     ports:
-      - "9000:9000"
+      - "88:80"
     volumes:
       - ".:/app"
-    command: php -S 0.0.0.0:9000 -t /app/public
+    working_dir: /app
+  postgres:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: ""
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: "test_db"
+      TZ: "America/Sao_Paulo"
+      PGTZ: "America/Sao_Paulo"
+    tmpfs:
+      - /var/lib/postgresql/data

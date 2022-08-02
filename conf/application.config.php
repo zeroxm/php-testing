@@ -7,7 +7,8 @@ return [
               "catchException" => true,
         ],
         "view" => [
-               "ext" => "phtml",
+               "ext" => ["html", "phtml"],
+               "engine" => "twig"
         ],
     ],
 ];

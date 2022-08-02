@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Models;
+
 /**
  * @name SampleModel
  * @author andre
